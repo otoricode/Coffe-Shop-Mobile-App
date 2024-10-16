@@ -1,7 +1,3 @@
-Berikut adalah deskripsi yang bisa Anda gunakan untuk proyek coffee shop mobile app di GitHub:
-
----
-
 # Coffee Shop Mobile App ☕📱
 
 This is a **public mobile application** for a coffee shop. The app is focused on providing an intuitive and visually appealing **UI/UX** to showcase various coffee products, special offers, and store information. Currently, it is **UI-only** and does not include any backend integration.
