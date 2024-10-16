@@ -1,3 +1,5 @@
+import 'package:app/core/routers/route_bloc.dart';
+import 'package:app/core/routers/route_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
@@ -162,75 +164,78 @@ class _MoreProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 4 / 2,
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 12,
-          horizontal: 14,
-        ),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.grey.withOpacity(0.2),
-              AppColors.grey.withOpacity(0),
-            ],
+    return GestureDetector(
+      onTap: () => RouteBloc().push(RouteProductDetail(product)),
+      child: AspectRatio(
+        aspectRatio: 4 / 2,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 14,
           ),
-          borderRadius: BorderRadius.circular(10),
-          border: const Border(
-            top: BorderSide(
-              color: AppColors.glassmorphism,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.grey.withOpacity(0.2),
+                AppColors.grey.withOpacity(0),
+              ],
             ),
-            left: BorderSide(
-              color: AppColors.glassmorphism,
+            borderRadius: BorderRadius.circular(10),
+            border: const Border(
+              top: BorderSide(
+                color: AppColors.glassmorphism,
+              ),
+              left: BorderSide(
+                color: AppColors.glassmorphism,
+              ),
             ),
           ),
-        ),
-        child: Row(
-          children: [
-            AspectRatio(
-              aspectRatio: 1 / 1,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: Image.network(
-                  product.image,
-                  fit: BoxFit.cover,
+          child: Row(
+            children: [
+              AspectRatio(
+                aspectRatio: 1 / 1,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: Image.network(
+                    product.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product.name,
-                    maxLines: 2,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    product.roastType,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          color: AppColors.glassmorphism,
-                        ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '\$ ${product.price}',
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: AppColors.primary,
-                        ),
-                  ),
-                ],
-              ),
-            )
-          ],
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      product.name,
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      product.roastType,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: AppColors.glassmorphism,
+                          ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '\$ ${product.price}',
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: AppColors.primary,
+                          ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -314,95 +319,100 @@ class _SpecialForYouItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 4,
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: const Border(
-              top: BorderSide(
-                color: AppColors.glassmorphism,
-              ),
-              left: BorderSide(
-                color: AppColors.glassmorphism,
-              )),
-          borderRadius: BorderRadius.circular(14),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.grey.withOpacity(0.2),
-              AppColors.grey.withOpacity(0),
-            ],
+    return GestureDetector(
+      onTap: () => RouteBloc().push(RouteProductDetail(product)),
+      child: AspectRatio(
+        aspectRatio: 3 / 4,
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            border: const Border(
+                top: BorderSide(
+                  color: AppColors.glassmorphism,
+                ),
+                left: BorderSide(
+                  color: AppColors.glassmorphism,
+                )),
+            borderRadius: BorderRadius.circular(14),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.grey.withOpacity(0.2),
+                AppColors.grey.withOpacity(0),
+              ],
+            ),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: 4 / 3,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  product.image,
-                  fit: BoxFit.cover,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AspectRatio(
+                aspectRatio: 4 / 3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    product.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Expanded(
-              child: Text(
-                product.name,
-                maxLines: 2,
-                style: Theme.of(context).textTheme.labelLarge,
+              const SizedBox(height: 8),
+              Expanded(
+                child: Text(
+                  product.name,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
               ),
-            ),
-            const SizedBox(height: 6),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        product.roastType,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style:
-                            Theme.of(context).textTheme.labelMedium?.copyWith(
-                                  color: AppColors.glassmorphism,
-                                ),
-                      ),
-                      const SizedBox(height: 4),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          '\$ ${product.price}',
+              const SizedBox(height: 6),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          product.roastType,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style:
-                              Theme.of(context).textTheme.labelLarge?.copyWith(
-                                    color: AppColors.primary,
+                              Theme.of(context).textTheme.labelMedium?.copyWith(
+                                    color: AppColors.glassmorphism,
                                   ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 4),
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            '\$ ${product.price}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                  color: AppColors.primary,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(width: 4),
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.primary,
-                  ),
-                  child: const Icon(
-                    IconlyBold.plus,
-                    color: AppColors.white,
-                  ),
-                )
-              ],
-            )
-          ],
+                  const SizedBox(width: 4),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.primary,
+                    ),
+                    child: const Icon(
+                      IconlyBold.plus,
+                      color: AppColors.white,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
