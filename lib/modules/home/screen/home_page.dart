@@ -222,7 +222,7 @@ class _MoreProductItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${product.price}',
+                    '\$ ${product.price}',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
                           color: AppColors.primary,
                         ),
