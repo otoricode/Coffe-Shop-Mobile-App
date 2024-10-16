@@ -19,7 +19,7 @@ This is a **public mobile application** for a coffee shop. The app is focused on
 ## 💻 How to Run:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/coffee-shop-mobile-app.git
+   git clone https://github.com/otoricode/Coffe-Shop-Mobile-App.git
    ```
 2. Navigate to the project folder and install dependencies:
    ```bash
@@ -30,9 +30,3 @@ This is a **public mobile application** for a coffee shop. The app is focused on
    ```bash
    flutter run
    ```
-
-Feel free to contribute by opening issues or submitting pull requests!
-
----
-
-Deskripsi ini sudah mencakup fitur, struktur proyek, dan panduan singkat untuk menjalankan aplikasi. Anda bisa menyesuaikannya sesuai kebutuhan atau preferensi.
