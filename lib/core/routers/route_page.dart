@@ -16,5 +16,6 @@ class RouteOnboarding extends RoutePage {
 }
 
 class RouteDashboard extends RoutePage {
-  RouteDashboard() : super(MaterialPage(child: DashboardPage()), '/dashboard');
+  RouteDashboard()
+      : super(const MaterialPage(child: DashboardPage()), '/dashboard');
 }

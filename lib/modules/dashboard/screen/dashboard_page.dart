@@ -45,17 +45,17 @@ class DashboardPage extends StatelessWidget {
 
 class _MyBottonNavigationBar extends StatelessWidget {
   const _MyBottonNavigationBar({
-    Key? key,
+    super.key,
     required this.index,
     required this.onTap,
-  }) : super(key: key);
+  });
   final int index;
   final Function(int) onTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(boxShadow: [
+      decoration: const BoxDecoration(boxShadow: [
         BoxShadow(
           color: AppColors.white,
           offset: Offset(4, 12),

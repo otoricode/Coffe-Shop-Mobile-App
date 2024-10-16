@@ -1,8 +1,11 @@
 import 'package:app/common/styles/app_colors.dart';
 import 'package:app/common/styles/text_style.dart';
 import 'package:app/modules/onboarding/screen/onboarding_page.dart';
+import 'package:app/modules/product/product_bloc.dart';
+import 'package:app/modules/product/repo/product_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../context.dart';
 import '../routers/route_bloc.dart';
@@ -17,24 +20,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _navigatorKey = GlobalKey<NavigatorState>();
   final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      scaffoldMessengerKey: snackbarKey,
-      navigatorObservers: [routeObserver],
-      title: 'Coffe Shop',
-      theme: ThemeData(
-        primarySwatch: AppColors.materialColorprimary,
-        fontFamily: 'Manrope',
-        textTheme: textTheme(),
-        scaffoldBackgroundColor: AppColors.background,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.materialColorprimary,
+    return MultiProvider(
+      providers: [
+        Provider(
+          create: (context) => ProductBloc(repo: HttpProductRepo()),
         ),
-        useMaterial3: true,
-      ),
-      home: AppPage(
-        navigatorKey: _navigatorKey,
+      ],
+      child: MaterialApp(
+        scaffoldMessengerKey: snackbarKey,
+        navigatorObservers: [routeObserver],
+        title: 'Coffe Shop',
+        theme: ThemeData(
+          primarySwatch: AppColors.materialColorprimary,
+          fontFamily: 'Manrope',
+          textTheme: textTheme(),
+          scaffoldBackgroundColor: AppColors.background,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.materialColorprimary,
+          ),
+          useMaterial3: true,
+        ),
+        home: AppPage(
+          navigatorKey: _navigatorKey,
+        ),
       ),
     );
   }
