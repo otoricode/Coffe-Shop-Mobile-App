@@ -300,7 +300,7 @@ class _SpecialForYou extends StatelessWidget {
                   },
                   separatorBuilder: (context, index) =>
                       const SizedBox(width: 16),
-                  itemCount: 12,
+                  itemCount: listProduct.length,
                 ),
               ),
             ],

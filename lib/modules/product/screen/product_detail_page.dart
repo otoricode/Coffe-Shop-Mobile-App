@@ -1,8 +1,13 @@
+import 'package:app/common/widgets/button.dart';
+import 'package:app/core/apps/android_app.dart';
+import 'package:app/core/routers/route_bloc.dart';
+import 'package:app/modules/product/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
 import 'package:app/common/widgets/appbar.dart';
 import 'package:app/modules/product/product_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../../common/styles/app_colors.dart';
 
@@ -16,6 +21,7 @@ class ProductDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ProductBloc>();
     return Scaffold(
       appBar: const CustomAppbar(appbarText: 'Detail Item'),
       body: SingleChildScrollView(
@@ -52,44 +58,62 @@ class ProductDetailPage extends StatelessWidget {
             ),
 
             // Count
-            Container(
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: AppColors.black,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: AppColors.background,
-                    ),
-                    child: const Icon(
-                      Icons.remove,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Text(
-                    '120',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: AppColors.black,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: bloc.decrement,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: AppColors.background,
+                        ),
+                        child: const Icon(
+                          Icons.remove,
                           color: AppColors.primary,
                         ),
-                  ),
-                  const SizedBox(width: 12),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: AppColors.background,
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.add,
-                      color: AppColors.primary,
+                    const SizedBox(width: 12),
+                    StreamBuilder<int>(
+                        stream: bloc.quantity.stream,
+                        initialData: bloc.quantity.value,
+                        builder: (context, snapshot) {
+                          final quantity = snapshot.data;
+                          return Text(
+                            '$quantity',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: AppColors.primary,
+                                ),
+                          );
+                        }),
+                    const SizedBox(width: 12),
+                    InkWell(
+                      onTap: bloc.incement,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: AppColors.background,
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: AppColors.primary,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 40),
@@ -174,22 +198,35 @@ class ProductDetailPage extends StatelessWidget {
             // Size
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                children: [
-                  _SizeItem(
-                    label: 'S',
-                  ),
-                  SizedBox(width: 12),
-                  _SizeItem(
-                    label: 'M',
-                  ),
-                  SizedBox(width: 12),
-                  _SizeItem(
-                    label: 'L',
-                  ),
-                ],
+              child: StreamBuilder<String>(
+                  stream: bloc.selectedSize.stream,
+                  initialData: bloc.selectedSize.value,
+                  builder: (context, snapshot) {
+                    final selected = snapshot.data;
+
+                    return Row(
+                      children: [
+                        _SizeItem(
+                            label: product.sizeOptions[0], selected: selected),
+                        const SizedBox(width: 12),
+                        _SizeItem(
+                            label: product.sizeOptions[1], selected: selected),
+                        const SizedBox(width: 12),
+                        _SizeItem(
+                            label: product.sizeOptions[2], selected: selected),
+                      ],
+                    );
+                  }),
+            ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: AppButton(
+                label: 'Buy Now',
+                onTap: () async {},
               ),
-            )
+            ),
+            const SizedBox(height: 36),
           ],
         ),
       ),
@@ -201,44 +238,68 @@ class _SizeItem extends StatelessWidget {
   const _SizeItem({
     super.key,
     required this.label,
+    this.selected,
   });
+
   final String label;
+  final String? selected;
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ProductBloc>();
+    bool isSelected = label == selected;
     return Expanded(
-      child: InkWell(
-        onTap: () {},
+      child: GestureDetector(
+        onTap: () => bloc.selectedSize.add(label),
         child: AspectRatio(
           aspectRatio: 4 / 2,
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              border: const Border(
+              border: Border(
                 top: BorderSide(
                   width: 1,
-                  color: AppColors.glassmorphism,
+                  color:
+                      isSelected ? AppColors.primary : AppColors.glassmorphism,
                 ),
                 left: BorderSide(
                   width: 1,
-                  color: AppColors.glassmorphism,
+                  color:
+                      isSelected ? AppColors.primary : AppColors.glassmorphism,
                 ),
+                bottom: isSelected
+                    ? const BorderSide(
+                        width: 1,
+                        color: AppColors.primary,
+                      )
+                    : BorderSide.none,
+                right: isSelected
+                    ? const BorderSide(
+                        width: 1,
+                        color: AppColors.primary,
+                      )
+                    : BorderSide.none,
               ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  AppColors.grey.withOpacity(0.2),
-                  AppColors.grey.withOpacity(0),
-                ],
-              ),
+              gradient: isSelected
+                  ? null
+                  : LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        isSelected
+                            ? Colors.orange.withOpacity(0.3)
+                            : AppColors.grey.withOpacity(0.2),
+                        AppColors.grey.withOpacity(0),
+                      ],
+                    ),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
               child: Text(
                 label,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: AppColors.glassmorphism,
+                      color:
+                          isSelected ? Colors.orange : AppColors.glassmorphism,
                     ),
               ),
             ),

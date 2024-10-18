@@ -11,6 +11,26 @@ class ProductBloc {
   final moreProduct = SStream<List<ProductModel>>([]);
   final specialProduct = SStream<List<ProductModel>>([]);
 
+  final selectedSize = ''.stream;
+  final quantity = 1.stream;
+
+  void incement() {
+    var currentValue = quantity.value;
+    currentValue = currentValue + 1;
+    print(currentValue);
+    quantity.add(currentValue);
+  }
+
+  void decrement() {
+    var currentValue = quantity.value;
+    if (currentValue <= 1) {
+      return;
+    }
+    currentValue = currentValue - 1;
+    print(currentValue);
+    quantity.add(currentValue);
+  }
+
   Future<void> getProduct() async {
     try {
       final response = await _service.getProductList();

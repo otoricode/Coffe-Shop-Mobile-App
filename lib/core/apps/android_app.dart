@@ -77,11 +77,8 @@ class AppPage extends StatelessWidget {
               return Navigator(
                 key: navigatorKey,
                 pages: [...snapshot.data!],
-                // onPopPage: (route, result) {
-                //   return route.didPop(result);
-                // },
-                onDidRemovePage: (page) {
-                  return print(page);
+                onPopPage: (route, result) {
+                  return route.didPop(result);
                 },
                 onGenerateRoute: (RouteSettings? setting) {
                   if (setting == null) {
@@ -94,12 +91,9 @@ class AppPage extends StatelessWidget {
             }
             return Navigator(
               key: navigatorKey,
-              pages: [MaterialPage(child: OnboardingPage())],
-              // onPopPage: (route, result) {
-              //   return route.didPop(result);
-              // },
-              onDidRemovePage: (page) {
-                return print(page);
+              pages: const [MaterialPage(child: OnboardingPage())],
+              onPopPage: (route, result) {
+                return route.didPop(result);
               },
               onGenerateRoute: (RouteSettings? setting) {
                 if (setting == null) {
