@@ -1,5 +1,6 @@
 import 'package:app/common/styles/app_colors.dart';
 import 'package:app/core/routers/my_pop_scope.dart';
+import 'package:app/core/routers/route_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -12,12 +13,16 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.onBack,
     this.backgroundColor,
     this.itemColor,
+    this.suffix1,
+    this.suffix2,
   });
 
   final String appbarText;
   final Function()? onBack;
   final Color? backgroundColor;
   final Color? itemColor;
+  final Widget? suffix1;
+  final Widget? suffix2;
 
   @override
   Size get preferredSize => const Size(double.infinity, 85.0);
@@ -69,8 +74,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                   right: 24.0,
                   left: 14.0,
                 ),
@@ -78,20 +83,12 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   children: [
                     SizedBox(
                       width: 30,
-                      child: Icon(
-                        IconlyBold.bag,
-                        size: 24,
-                        color: AppColors.white,
-                      ),
+                      child: suffix1,
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     SizedBox(
                       width: 30,
-                      child: Icon(
-                        IconlyBold.heart,
-                        size: 24,
-                        color: AppColors.white,
-                      ),
+                      child: suffix2,
                     ),
                   ],
                 ),

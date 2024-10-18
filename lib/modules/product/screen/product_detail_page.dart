@@ -1,6 +1,6 @@
 import 'package:app/common/widgets/button.dart';
-import 'package:app/core/apps/android_app.dart';
 import 'package:app/core/routers/route_bloc.dart';
+import 'package:app/core/routers/route_page.dart';
 import 'package:app/modules/product/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -23,7 +23,24 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<ProductBloc>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: 'Detail Item'),
+      appBar: CustomAppbar(
+        appbarText: 'Detail Item',
+        suffix1: InkWell(
+          onTap: () {
+            RouteBloc().push(RouteCheckout());
+          },
+          child: const Icon(
+            IconlyBold.bag,
+            size: 24,
+            color: AppColors.white,
+          ),
+        ),
+        suffix2: const Icon(
+          IconlyBold.heart,
+          size: 24,
+          color: AppColors.white,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,4 @@
+import 'package:app/modules/checkout/screen/checkout_page.dart';
 import 'package:app/modules/dashboard/screen/dashboard_page.dart';
 import 'package:app/modules/product/product_model.dart';
 import 'package:app/modules/product/screen/product_detail_page.dart';
@@ -27,5 +28,13 @@ class RouteProductDetail extends RoutePage {
       : super(
           MaterialPage(child: ProductDetailPage(product: product)),
           '/product-detail',
+        );
+}
+
+class RouteCheckout extends RoutePage {
+  RouteCheckout()
+      : super(
+          MaterialPage(child: CheckoutPage()),
+          '/checkout',
         );
 }
