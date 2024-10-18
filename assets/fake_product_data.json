@@ -1,0 +1,384 @@
+[
+    {
+        "id": 1,
+        "name": "Cuppacino Lata",
+        "roast_type": "Light Roast",
+        "image": "https://picsum.photos/200?random=1",
+        "rating": 4.4,
+        "price": 20.35,
+        "description": "Mixing American coffee beans with Italian to produce the distinctive taste of cuppacino lata coffee to accompany your busy day.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 2,
+        "name": "Americano Classic",
+        "roast_type": "Medium Roast",
+        "image": "https://picsum.photos/200?random=2",
+        "rating": 4.7,
+        "price": 18.50,
+        "description": "A bold and rich classic Americano, brewed with premium dark roast beans.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "name": "Latte Macchiato",
+        "roast_type": "Dark Roast",
+        "image": "https://picsum.photos/200?random=3",
+        "rating": 4.6,
+        "price": 22.00,
+        "description": "Creamy and smooth latte macchiato with a hint of vanilla syrup.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 3
+    },
+    {
+        "id": 4,
+        "name": "Espresso Shot",
+        "roast_type": "City Roast",
+        "image": "https://picsum.photos/200?random=4",
+        "rating": 4.9,
+        "price": 15.75,
+        "description": "A single shot of strong and bold espresso, perfect for a quick energy boost.",
+        "size_options": [
+            "S",
+            "M"
+        ],
+        "selected_size": "S",
+        "quantity": 1
+    },
+    {
+        "id": 5,
+        "name": "Mocha Frappe",
+        "roast_type": "Full City Roast",
+        "image": "https://picsum.photos/200?random=5",
+        "rating": 4.5,
+        "price": 24.60,
+        "description": "Rich mocha blended with ice and topped with whipped cream.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 2
+    },
+    {
+        "id": 6,
+        "name": "Vanilla Cold Brew",
+        "roast_type": "French Roast",
+        "image": "https://picsum.photos/200?random=6",
+        "rating": 4.8,
+        "price": 19.90,
+        "description": "Cold brew coffee with a smooth vanilla flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 7,
+        "name": "Hazelnut Latte",
+        "roast_type": "Italian Roast",
+        "image": "https://picsum.photos/200?random=7",
+        "rating": 4.6,
+        "price": 21.75,
+        "description": "Smooth latte with a delightful hint of hazelnut syrup.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "S",
+        "quantity": 1
+    },
+    {
+        "id": 8,
+        "name": "Iced Caramel Macchiato",
+        "roast_type": "Breakfast Roast",
+        "image": "https://picsum.photos/200?random=8",
+        "rating": 4.4,
+        "price": 23.45,
+        "description": "Iced macchiato with caramel drizzle, a perfect refreshment for warm days.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 3
+    },
+    {
+        "id": 9,
+        "name": "Chai Latte",
+        "roast_type": "Light City Roast",
+        "image": "https://picsum.photos/200?random=9",
+        "rating": 4.3,
+        "price": 18.95,
+        "description": "A perfect blend of spicy chai and smooth milk for a comforting taste.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 10,
+        "name": "Matcha Green Tea Latte",
+        "roast_type": "Vienna Roast",
+        "image": "https://picsum.photos/200?random=10",
+        "rating": 4.7,
+        "price": 22.50,
+        "description": "A creamy and refreshing matcha green tea latte.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 11,
+        "name": "Double Chocolate Mocha",
+        "roast_type": "Colombian Roast",
+        "image": "https://picsum.photos/200?random=11",
+        "rating": 4.5,
+        "price": 25.00,
+        "description": "Rich chocolate mocha with double the flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 3
+    },
+    {
+        "id": 12,
+        "name": "Peppermint Mocha",
+        "roast_type": "Peaberry Roast",
+        "image": "https://picsum.photos/200?random=12",
+        "rating": 4.6,
+        "price": 21.35,
+        "description": "Festive peppermint mocha for a refreshing twist on the classic flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 1
+    },
+    {
+        "id": 13,
+        "name": "Irish Cream Cold Brew",
+        "roast_type": "Jamaican Blue Mountain Roast",
+        "image": "https://picsum.photos/200?random=13",
+        "rating": 4.9,
+        "price": 23.90,
+        "description": "Smooth cold brew coffee with a touch of Irish cream flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 14,
+        "name": "Almond Milk Latte",
+        "roast_type": "Sumatra Roast",
+        "image": "https://picsum.photos/200?random=14",
+        "rating": 4.5,
+        "price": 20.00,
+        "description": "Creamy almond milk latte, a dairy-free alternative.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 15,
+        "name": "Coconut Iced Coffee",
+        "roast_type": "Hazelnut Roast",
+        "image": "https://picsum.photos/200?random=15",
+        "rating": 4.7,
+        "price": 22.80,
+        "description": "Iced coffee with a tropical coconut twist.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 16,
+        "name": "Cinnamon Dolce Latte",
+        "roast_type": "Vanilla Roast",
+        "image": "https://picsum.photos/200?random=16",
+        "rating": 4.6,
+        "price": 21.15,
+        "description": "Sweet cinnamon flavor mixed with smooth espresso and milk.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 17,
+        "name": "Pumpkin Spice Latte",
+        "roast_type": "Caramel Roast",
+        "image": "https://picsum.photos/200?random=17",
+        "rating": 4.8,
+        "price": 23.00,
+        "description": "A seasonal favorite, perfect blend of pumpkin, spice, and everything nice.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 18,
+        "name": "Flat White",
+        "roast_type": "Chocolate Roast",
+        "image": "https://picsum.photos/200?random=18",
+        "rating": 4.9,
+        "price": 19.50,
+        "description": "Smooth and velvety flat white with a balance of espresso and milk.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 19,
+        "name": "Affogato",
+        "roast_type": "Decaf Roast",
+        "image": "https://picsum.photos/200?random=19",
+        "rating": 4.7,
+        "price": 26.00,
+        "description": "Espresso poured over vanilla ice cream for a delightful treat.",
+        "size_options": [
+            "S",
+            "M"
+        ],
+        "selected_size": "M",
+        "quantity": 1
+    },
+    {
+        "id": 20,
+        "name": "Butter Caramel Latte",
+        "roast_type": "Organic Roast",
+        "image": "https://picsum.photos/200?random=20",
+        "rating": 4.5,
+        "price": 24.75,
+        "description": "Creamy latte infused with butter caramel flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 2
+    },
+    {
+        "id": 21,
+        "name": "Dark Mocha",
+        "roast_type": "Espresso Roast",
+        "image": "https://picsum.photos/200?random=21",
+        "rating": 4.4,
+        "price": 23.50,
+        "description": "Intense dark chocolate mocha with a rich flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 3
+    },
+    {
+        "id": 22,
+        "name": "Honey Almond Flat White",
+        "roast_type": "House Blend Roast",
+        "image": "https://picsum.photos/200?random=22",
+        "rating": 4.6,
+        "price": 21.40,
+        "description": "Flat white sweetened with honey and mixed with almond milk.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "M",
+        "quantity": 2
+    },
+    {
+        "id": 23,
+        "name": "Salted Caramel Mocha",
+        "roast_type": "Blonde Roast",
+        "image": "https://picsum.photos/200?random=23",
+        "rating": 4.7,
+        "price": 25.10,
+        "description": "Mocha with a savory twist of salted caramel flavor.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "L",
+        "quantity": 1
+    },
+    {
+        "id": 24,
+        "name": "Toffee Nut Latte",
+        "roast_type": "Medium-Dark Roast",
+        "image": "https://picsum.photos/200?random=24",
+        "rating": 4.8,
+        "price": 22.70,
+        "description": "Rich and creamy latte with toffee nut syrup for an extra treat.",
+        "size_options": [
+            "S",
+            "M",
+            "L"
+        ],
+        "selected_size": "S",
+        "quantity": 2
+    }
+]

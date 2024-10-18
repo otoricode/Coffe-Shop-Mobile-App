@@ -7,6 +7,7 @@ class AppColors {
   static const grey = Color(0xFFC4C4C4);
   static const glassmorphism = Color(0x60FFFFFF);
   static const error = Color(0xffFF3939);
+  static const black = Color(0xff222427);
 
   static const MaterialColor materialColorprimary = Colors.deepOrange;
   static const inputEnableBorder = Color(0xffEEEEEE);

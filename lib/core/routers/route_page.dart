@@ -1,4 +1,7 @@
+import 'package:app/modules/checkout/screen/checkout_page.dart';
 import 'package:app/modules/dashboard/screen/dashboard_page.dart';
+import 'package:app/modules/product/product_model.dart';
+import 'package:app/modules/product/screen/product_detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../modules/onboarding/screen/onboarding_page.dart';
@@ -16,5 +19,22 @@ class RouteOnboarding extends RoutePage {
 }
 
 class RouteDashboard extends RoutePage {
-  RouteDashboard() : super(MaterialPage(child: DashboardPage()), '/dashboard');
+  RouteDashboard()
+      : super(const MaterialPage(child: DashboardPage()), '/dashboard');
+}
+
+class RouteProductDetail extends RoutePage {
+  RouteProductDetail(ProductModel product)
+      : super(
+          MaterialPage(child: ProductDetailPage(product: product)),
+          '/product-detail',
+        );
+}
+
+class RouteCheckout extends RoutePage {
+  RouteCheckout()
+      : super(
+          MaterialPage(child: CheckoutPage()),
+          '/checkout',
+        );
 }
