@@ -1,5 +1,6 @@
 import 'package:app/common/widgets/appbar.dart';
 import 'package:app/common/widgets/button.dart';
+import 'package:app/core/routers/route_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/styles/app_colors.dart';
@@ -26,10 +27,58 @@ class CheckoutPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 44),
               child: AppButton(
                 label: 'Pay Now',
-                onTap: () async {},
+                onTap: () async {
+                  popUp(context);
+                },
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> popUp(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.transparent,
+        content: Container(
+          padding: const EdgeInsets.all(24.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            color: AppColors.background,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.check_circle_outline_rounded,
+                size: 60.0,
+                color: AppColors.primary,
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              Text(
+                'Your payment has been confirmed. you can check the details order.',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: AppColors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              AppButton(
+                label: 'Back to home',
+                onTap: () async {
+                  Navigator.pop(context);
+                  RouteBloc().backHome();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -43,31 +92,55 @@ class _Invoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Shipping Fee'),
-              Text('\$ 5.00'),
+              Text(
+                'Shipping Fee',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                '\$ 5.00',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: AppColors.primary,
+                    ),
+              ),
             ],
           ),
-          SizedBox(height: 13),
+          const SizedBox(height: 13),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Shipping Fee'),
-              Text('\$ 5.00'),
+              Text(
+                'Shipping Fee',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                '\$ 5.00',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: AppColors.primary,
+                    ),
+              ),
             ],
           ),
-          SizedBox(height: 13),
+          const SizedBox(height: 13),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Shipping Fee'),
-              Text('\$ 5.00'),
+              Text(
+                'Shipping Fee',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              Text(
+                '\$ 5.00',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: AppColors.primary,
+                    ),
+              ),
             ],
           ),
         ],
@@ -88,7 +161,10 @@ class _PaymentMethod extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Payment Method'),
+          Text(
+            'Payment Method',
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
           const SizedBox(height: 8),
           AspectRatio(
             aspectRatio: 4 / 1,
@@ -177,8 +253,11 @@ class _OrderDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Order Detail',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: AppColors.white,
+                  ),
             ),
             const SizedBox(height: 16),
             ListView.separated(
@@ -324,21 +403,40 @@ class _DeliveryAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Delivery Address'),
-          SizedBox(height: 26),
+          Text(
+            'Delivery Address',
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                  color: AppColors.white,
+                ),
+          ),
+          const SizedBox(height: 26),
           Row(
             children: [
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Home'),
-                    Text('Emilia Jeha'),
+                    Text(
+                      '[Home]',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: AppColors.primary,
+                          ),
+                    ),
+                    const SizedBox(height: 4.0),
+                    Text(
+                      'Emilia Jeha',
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      'Cibadak street 63, 43351 Sukabumi, Jawa Barat',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ],
                 ),
               ),
@@ -346,7 +444,21 @@ class _DeliveryAddress extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: InkWell(
-                    child: Text('Change'),
+                    onTap: () {},
+                    highlightColor: AppColors.glassmorphism,
+                    child: SizedBox(
+                      height: 48.0,
+                      width: 48.0,
+                      child: Center(
+                        child: Text(
+                          'Change',
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: AppColors.primary,
+                                  ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
