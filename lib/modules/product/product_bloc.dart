@@ -27,7 +27,6 @@ class ProductBloc {
       return;
     }
     currentValue = currentValue - 1;
-    print(currentValue);
     quantity.add(currentValue);
   }
 

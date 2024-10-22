@@ -23,19 +23,14 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<ProductBloc>();
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: const CustomAppbar(
         appbarText: 'Detail Item',
-        suffix1: InkWell(
-          onTap: () {
-            RouteBloc().push(RouteCheckout());
-          },
-          child: const Icon(
-            IconlyBold.bag,
-            size: 24,
-            color: AppColors.white,
-          ),
+        suffix1: Icon(
+          IconlyBold.bag,
+          size: 24,
+          color: AppColors.white,
         ),
-        suffix2: const Icon(
+        suffix2: Icon(
           IconlyBold.heart,
           size: 24,
           color: AppColors.white,
@@ -45,23 +40,23 @@ class ProductDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AspectRatio(
-              aspectRatio: 1 / 1,
-              child: Container(
-                padding: const EdgeInsets.all(29),
-                margin: const EdgeInsets.symmetric(horizontal: 56),
-                decoration: const BoxDecoration(
-                  color: AppColors.background,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 0,
-                      spreadRadius: 0,
-                      offset: Offset(0, 2),
-                      color: AppColors.white,
-                    )
-                  ],
-                  shape: BoxShape.circle,
-                ),
+            Container(
+              padding: const EdgeInsets.all(29),
+              margin: const EdgeInsets.symmetric(horizontal: 56),
+              decoration: const BoxDecoration(
+                color: AppColors.background,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 0,
+                    spreadRadius: 0,
+                    offset: Offset(0, 2),
+                    color: AppColors.white,
+                  )
+                ],
+                shape: BoxShape.circle,
+              ),
+              child: AspectRatio(
+                aspectRatio: 1 / 1,
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -73,6 +68,7 @@ class ProductDetailPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 28),
 
             // Count
             Center(
@@ -240,7 +236,9 @@ class ProductDetailPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: AppButton(
                 label: 'Buy Now',
-                onTap: () async {},
+                onTap: () async {
+                  RouteBloc().push(RouteCheckout());
+                },
               ),
             ),
             const SizedBox(height: 36),

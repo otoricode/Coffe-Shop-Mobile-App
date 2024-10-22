@@ -59,6 +59,7 @@ class RouteBloc extends Object {
 
   backHome() {
     _currentPages.removeWhere((element) => element is! RouteDashboard);
+    _notify();
   }
 
   Stream<List<Page<dynamic>>> get pages => _pageController.stream;
